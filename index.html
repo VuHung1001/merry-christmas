@@ -15,7 +15,7 @@
 
 <body translate="no">
     <div class="signature">
-        <p>From Vũ Hùng with love</p>
+        <p>From Vũ Hùng</p>
         <p>Ủng hộ cho tớ 1 cốc coffee tại Nickname Techcombank: RuoiVaRua</p>
         <p>Hoặc MB bank: 0329905386</p>
     </div>
@@ -30,12 +30,12 @@
         <div class="outside">
           <div class="front">
             <p>Merry Christmas Thạch Phan!</p>
-            <!-- <div class="cake">
+            <div class="cake">
               <div class="top-layer"></div>
               <div class="middle-layer"></div>
               <div class="bottom-layer"></div>
               <div class="candle"></div>
-            </div> -->
+            </div>
             <img class="christmas-image" src="/christmas.jpg" alt=""/>
           </div>
           <div class="back"></div>
@@ -150,10 +150,7 @@
                 transform="matrix(1,0,0,1,609.6,464.1)"
                 style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"></circle>
         </g>
-        <foreignObject id="endMessage" x="0" y="550" width="800" height="250" style="opacity: 0;">
-            <span class="endMessage">
-                Merry Christmas Thạch Phan !!
-            </span>
+        <foreignObject id="endMessage" class="text-container" x="0" y="550" width="800" height="250" style="opacity: 0;">
         </foreignObject>
         <path class="particle" id="star"
             d="M4.55,0 C5.01667,0.95 5.48333,1.9 5.95,2.85 7,3 8.05,3.15 9.1,3.3 8.34,4.04 7.58,4.78 6.82,5.52 7,6.56333 7.18,7.60667 7.36,8.65 6.42333,8.15667 5.48667,7.66333 4.55,7.17 3.61333,7.66333 2.67667,8.15667 1.74,8.65 1.91667,7.60667 2.09333,6.56333 2.27,5.52 1.51333,4.78 0.75667,4.04 0,3.3 1.04667,3.15 2.09333,3 3.14,2.85 3.61,1.9 4.08,0.95 4.55,0 z"
@@ -279,6 +276,47 @@
             }
         }
     </script>
+
+<!-- <div class="text-container">
+    <span style="--index: 1;">H</span>
+    <span style="--index: 2;">E</span>
+    <span style="--index: 3;">L</span>
+    <span style="--index: 4;">L</span>
+    <span style="--index: 5;">O</span>
+    <span style="--index: 6;">!</span>
+    <span> </span>
+    <span style="--index: 7;">H</span>
+    <span style="--index: 8;">Ù</span>
+    <span style="--index: 9;">N</span>
+    <span style="--index: 10;">G</span>
+  </div> -->
+
+  <script>
+    const greetingArr = 'Merry Christmas Thạch Phan !!'.split('');
+    const textContainer = document.querySelector('.text-container');
+    for (let i = 0; i < greetingArr.length; i++) {
+        const char = greetingArr[i];
+        const spanEle = document.createElement('span');
+        spanEle.setAttribute('style', `--index: ${i+1}`)
+        spanEle.innerText = char;
+        textContainer.appendChild(spanEle);
+    }
+  </script>
+
+  <script>
+    // const textContainer = document.querySelector('.text-container');
+    // const spans = textContainer.querySelectorAll('span');
+
+    // spans.forEach((span, index) => {
+    //   span.addEventListener('animationend', () => {
+    //     spans.forEach((s, i) => {
+    //       if (i < index) {
+    //         s.style.transform = 'scale(1)';
+    //       }
+    //     });
+    //   });
+    // });
+  </script>
 
 </body>
 
