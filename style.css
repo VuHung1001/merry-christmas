@@ -16,16 +16,20 @@ body {
     position: relative;
     height: 100vh;
     width: 100vw;
+    margin: 0;
+    padding: 0;    
 }
 
-body,
 html {
     height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
 }
 
+
+* {
+  box-sizing: border-box;
+}
 
 
 
@@ -41,7 +45,7 @@ svg {
     height: 90%;
 }
 
-#endMessage {
+#endMessage, .text-container {
     font-family: mountains_of_christmasregular;
     font-size: 2rem;
     text-anchor: middle;
@@ -74,16 +78,6 @@ a {
     pointer-events: none;
 }
 
-
-
-
-.wrapper {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-}
 
 
 
@@ -120,6 +114,7 @@ a {
 .view-card-btn {
     visibility: hidden;
     opacity: 0;
+    transform: scale(0);
 	display: inline-block;
 	min-width:100px;
 	padding: 15px 20px;
@@ -130,10 +125,10 @@ a {
 	border-radius: 15px;
     position: absolute;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: auto;
     border: none;
     transition: 1s;
+    z-index: 999;
 }
 
 .view-card-btn:hover {
@@ -158,6 +153,13 @@ a {
 
 
 /* card */
+.wrapper-card {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
+}
 .card {
     visibility: hidden;
     opacity: 0;
@@ -174,11 +176,11 @@ a {
     perspective: 1200px;
     transition: 1s;
   }
-  .card:hover {
+  .card:hover, .card:active {
     transform: rotate(-5deg);
   }
-  .card:hover .outside {
-    transform: rotateY(-130deg);
+  .card:hover .outside, .card:active .outside {
+    transform: rotateY(-135deg);
   }
   .outside,
   .inside {
@@ -299,22 +301,48 @@ a {
   .inside p {
     font-family: Arial, sans-serif;
     letter-spacing: 1px;
+    width: calc(100% - 40px);
   }
+
+  .inside img {
+    position: absolute;
+    bottom: 0;
+  }
+
+
 
 
   .text-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+  }
+
+  .text-outside-card {
+    position: absolute;
+    bottom: 100px;    
+  }
+
+  .text-inside-card {
+    position: absolute;
+    top: 0;    
   }
 
   .text-container span {
+    min-width: 10px;
     color: white;
     display: inline-block;
     opacity: 0;
     transform: scale(0.5);
-    animation: appear 1s forwards;
-    animation-delay: calc(0.2s * var(--index));
+    animation: appear 0.8s forwards;
+    animation-delay: calc(0.1s * var(--index));
+  }
+
+  .text-container.text-inside-card span {
+    color: #d30045;
+    /* animation: appear 1s forwards infinite;
+    animation-delay: calc(0.1s * var(--index)); */
   }
 
   @keyframes appear {
@@ -334,19 +362,33 @@ a {
 
 
 
+
+
   @media only screen and (max-width: 1000px) {
     .noel-tree {
-        max-width: 100%;
-        height: unset;
-        object-fit: contain;
+      transform: scale(2);
     }
 
-    /* .wrapper {
-        transform: rotate(90deg);
-    } */
-
     .card {
-        width: 100vw;
-        height: calc(100vw / 640 * 400)
+        width: 90vw;
+        height: calc(90vw / 640 * 400);
+
+    }
+
+    .text-outside-card {
+      bottom: 150px;
+    }
+
+    .view-card-btn {
+      bottom: 80px;
+    }
+
+    .inside img {
+      transform: scale(0.5);
+      bottom: -25%;
+    }
+
+    .outside p {
+      font-size: 14px;
     }
   }

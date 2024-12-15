@@ -14,39 +14,43 @@
 </head>
 
 <body translate="no">
-    <div class="signature">
+    <!-- <div class="signature">
         <p>From Vũ Hùng</p>
         <p>Ủng hộ cho tớ 1 cốc coffee tại Nickname Techcombank: RuoiVaRua</p>
         <p>Hoặc MB bank: 0329905386</p>
-    </div>
+    </div> -->
 
 
 
-    <button class="view-card-btn" onclick="viewCard()">Nhấn vào để xem (bí mật) =))</button>
+    <button class="view-card-btn" onclick="viewCard()">Nhấn vào để xem =))</button>
     
 
 
-    <div class="card">
-        <div class="outside">
-          <div class="front">
-            <p>Merry Christmas Thạch Phan!</p>
-            <div class="cake">
-              <div class="top-layer"></div>
-              <div class="middle-layer"></div>
-              <div class="bottom-layer"></div>
-              <div class="candle"></div>
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="outside">
+            <div class="front">
+                <p>Merry Christmas Thạch Phan!</p>
+                <!-- <div class="cake">
+                <div class="top-layer"></div>
+                <div class="middle-layer"></div>
+                <div class="bottom-layer"></div>
+                <div class="candle"></div>
+                </div> -->
+                <img class="christmas-image" src="/christmas.jpg" alt=""/>
             </div>
-            <img class="christmas-image" src="/christmas.jpg" alt=""/>
-          </div>
-          <div class="back"></div>
-        </div>
-        <div class="inside">
-          <p>TP ❤️ HĐ</p>
-          <p>nhé!</p>
-          <img class="love-image" src="/heart.svg" alt=""/>
+            <div class="back"></div>
+            </div>
+            <div class="inside">
+            <p class="text-container text-inside-card">TP ❤️ HĐ</p>
+            <img class="love-image" src="/heart.svg" alt=""/>
+            </div>
         </div>
     </div>
 
+
+
+    <div class="text-container text-outside-card"></div>
 
 
     <svg class="mainSVG noel-tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -150,7 +154,7 @@
                 transform="matrix(1,0,0,1,609.6,464.1)"
                 style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"></circle>
         </g>
-        <foreignObject id="endMessage" class="text-container" x="0" y="550" width="800" height="250" style="opacity: 0;">
+        <foreignObject id="endMessage"  x="0" y="550" width="800" height="250" style="opacity: 0;">
         </foreignObject>
         <path class="particle" id="star"
             d="M4.55,0 C5.01667,0.95 5.48333,1.9 5.95,2.85 7,3 8.05,3.15 9.1,3.3 8.34,4.04 7.58,4.78 6.82,5.52 7,6.56333 7.18,7.60667 7.36,8.65 6.42333,8.15667 5.48667,7.66333 4.55,7.17 3.61333,7.66333 2.67667,8.15667 1.74,8.65 1.91667,7.60667 2.09333,6.56333 2.27,5.52 1.51333,4.78 0.75667,4.04 0,3.3 1.04667,3.15 2.09333,3 3.14,2.85 3.61,1.9 4.08,0.95 4.55,0 z"
@@ -183,6 +187,36 @@
 
     <!-- cay thong -->
     <script id="rendered-js">
+        function displayText() {
+            const greetingArr = 'Merry Christmas Thạch Phan !!'.split('');
+            const greetingArr2 = 'Love You <3'.split('');
+            const textContainer = document.querySelector('.text-container.text-outside-card');
+            const textContainer2 = document.querySelector('.text-container.text-inside-card');
+
+            function renderText(textContainer, greetingArr) {
+                if (textContainer) {
+                    textContainer.innerHTML = '';
+                }
+
+                for (let i = 0; i < greetingArr.length; i++) {
+                    const char = greetingArr[i];
+                    const spanEle = document.createElement('span');
+                    spanEle.setAttribute('style', `--index: ${i+1}`);
+                    spanEle.style.transform = 'scale(1)';
+                    spanEle.innerText = char;
+                    if (char === '') {
+                        spanEle.innerHTML = '&nbsp;'
+                    }
+
+                    if (textContainer) {
+                        textContainer.appendChild(spanEle);
+                    }
+                }
+            }
+
+            renderText(textContainer, greetingArr)
+            window.renderText = () => renderText(textContainer2, greetingArr2)
+        }        
         (function () {
             function r(a) { gsap.killTweensOf(a, { opacity: !0 }); gsap.fromTo(a, { opacity: 1 }, { duration: .07, opacity: Math.random(), repeat: -1 }); } function t(a) {
                 e && (a = l[d], gsap.set(a, { x: gsap.getProperty(".pContainer", "x"), y: gsap.getProperty(".pContainer", "y"), scale: m() }), gsap.timeline().to(a, {
@@ -199,7 +233,8 @@
                     } window.CP.exitedLoop(0);
                 })(); (function () { k = gsap.timeline({ onUpdate: t }); k.to(".pContainer, .sparkle", { duration: 6, motionPath: { path: ".treePath", autoRotate: !1 }, ease: "linear" }).to(".pContainer, .sparkle", { duration: 1, onStart: function () { e = !1; }, x: q[0].x, y: q[0].y }).to(".pContainer, .sparkle", { duration: 2, onStart: function () { e = !0; }, motionPath: { path: ".treeBottomPath", autoRotate: !1 }, ease: "linear" }, "-=0").from(".treeBottomMask", { duration: 2, drawSVG: "0% 0%", stroke: "#FFF", ease: "linear" }, "-=2"); })(); c.from([".treePathMask",
                     ".treePotMask"], { drawSVG: "0% 0%", stroke: "#FFF", stagger: { each: 6 }, duration: gsap.utils.wrap([6, 1, 2]), ease: "linear" }).from(".treeStar", { duration: 3, scaleY: 0, scaleX: .15, transformOrigin: "50% 50%", ease: "elastic(1,0.5)" }, "-=4").to(".sparkle", { duration: 3, opacity: 0, ease: "rough({strength: 2, points: 100, template: linear, taper: both, randomize: true, clamp: false})" }, "-=0").to(".treeStarOutline", { duration: 1, opacity: 1, ease: "rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})" },
-                        "+=1"); c.add(k, 0); gsap.globalTimeline.timeScale(1.5); k.vars.onComplete = function () { gsap.to('foreignObject', { opacity: 1 }); };
+                        // "+=1"); c.add(k, 0); gsap.globalTimeline.timeScale(1.5); k.vars.onComplete = function () { gsap.to('foreignObject', { opacity: 1 }); };
+                        "+=1"); c.add(k, 0); gsap.globalTimeline.timeScale(1.5); k.vars.onComplete = displayText;
         })();
     </script>
 
@@ -251,13 +286,16 @@
             setTimeout(() => {
                 viewCardBtn.style.visibility = 'visible';
                 viewCardBtn.style.opacity = '1';
-            }, 7500);
+                viewCardBtn.style.transform = 'scale(1)';
+                viewCardBtn.style.animation = 'appear 0.8s forwards';
+            }, 9500);
         }
 
         function viewCard() {
             const card = document.querySelector('.card');
             const noelTree = document.querySelector('.noel-tree');
             const viewCardBtn = document.querySelector('.view-card-btn')
+            const wrapperCard = document.querySelector('.wrapper-card')
 
             if (card) {
                 card.style.visibility = 'visible';
@@ -274,34 +312,34 @@
                 viewCardBtn.style.visibility = 'hidden';
                 viewCardBtn.style.opacity = '0';
             }
+
+            if (wrapperCard) {
+                wrapperCard.addEventListener('mouseover', debounce((event) => {
+                    const textContainer2 = document.querySelector('.text-container.text-inside-card');
+    
+                    if (textContainer2) {
+                        textContainer2.innerHTML = '';
+                    }
+    
+                    setTimeout(() => {
+                        if (window.renderText) {
+                            window.renderText();
+                        }
+                    });
+                }))
+            }
+        }
+
+        function debounce (callback, wait = 800) {
+            let timeoutId = null;
+            return (...args) => {
+                window.clearTimeout(timeoutId);
+                timeoutId = window.setTimeout(() => {
+                    callback(...args);
+                }, wait);
+            };
         }
     </script>
-
-<!-- <div class="text-container">
-    <span style="--index: 1;">H</span>
-    <span style="--index: 2;">E</span>
-    <span style="--index: 3;">L</span>
-    <span style="--index: 4;">L</span>
-    <span style="--index: 5;">O</span>
-    <span style="--index: 6;">!</span>
-    <span> </span>
-    <span style="--index: 7;">H</span>
-    <span style="--index: 8;">Ù</span>
-    <span style="--index: 9;">N</span>
-    <span style="--index: 10;">G</span>
-  </div> -->
-
-  <script>
-    const greetingArr = 'Merry Christmas Thạch Phan !!'.split('');
-    const textContainer = document.querySelector('.text-container');
-    for (let i = 0; i < greetingArr.length; i++) {
-        const char = greetingArr[i];
-        const spanEle = document.createElement('span');
-        spanEle.setAttribute('style', `--index: ${i+1}`)
-        spanEle.innerText = char;
-        textContainer.appendChild(spanEle);
-    }
-  </script>
 
   <script>
     // const textContainer = document.querySelector('.text-container');
