@@ -402,4 +402,12 @@ a {
     .card:active .outside {
       transform: rotateY(-135deg);
     }
+
+    .text-container.text-inside-card {
+      font-size: 1.2rem;
+    }
+
+    .text-container span {
+      min-width: 4px;
+    }
   }
