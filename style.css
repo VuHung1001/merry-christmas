@@ -80,7 +80,7 @@ a {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    opacity: 0.6;
+    opacity: 0.3;
 }
 
 .signature p {
@@ -302,7 +302,6 @@ a {
 
   .inside p {
     font-family: Arial, sans-serif;
-    letter-spacing: 1px;
     width: calc(100% - 40px);
   }
 
@@ -318,6 +317,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     opacity: 1;
   }
 
@@ -332,6 +332,7 @@ a {
   }
 
   .text-container span {
+    line-height: 2rem;
     min-width: 10px;
     color: white;
     display: inline-block;

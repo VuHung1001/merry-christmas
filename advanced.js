@@ -1,8 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
 
 function displayText() {
-	const greetingArr = 'Merry Christmas Thạch Phan !!'.split('');
-	const greetingArr2 = 'Love You <3'.split('');
+	const greetingArr = 'Merry Christmas !!'.split('');
+	const greetingArr2 = 'Wish you a happy holiday with your loved ones'.split('');
 	const textContainer = document.querySelector('.text-container.text-outside-card');
 	const textContainer2 = document.querySelector('.text-container.text-inside-card');
 
