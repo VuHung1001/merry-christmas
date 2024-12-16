@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" href="css/flipdown.css" />
-  <script src="js/flipdown.js"></script>
+  <!-- <script src="js/flipdown.js"></script> -->
   <script src="script.js"></script>
+  <script src="advanced.js"></script>
   <head>
     <title>Christmas Tree</title>
     <meta charset="utf-8" />
     <link rel="icon" href="./static/favicon.ico" />
     <link rel="apple-touch-icon" href="./static/apple-touch-icon.png" />
-    <link rel="manifest" href="./static/site.webmanifest" />
+    <link rel="manifest" href="./static/site.webmanifest.json" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#FFFFFF" />
     <link rel="stylesheet" type="text/css" href="./index.css" />
@@ -16,8 +17,36 @@
       href="https://fonts.googleapis.com/css?family=Berkshire+Swash"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    
+    <div class="wrapper-card">
+      <div class="text-container text-outside-card"></div>
+      <button class="view-card-btn" onclick="viewCard()">Nhấn vào để xem lời chúc =))</button>
+      <div class="card">
+          <div class="outside">
+          <div class="front">
+              <p>Merry Christmas Thạch Phan!</p>
+              <!-- <div class="cake">
+              <div class="top-layer"></div>
+              <div class="middle-layer"></div>
+              <div class="bottom-layer"></div>
+              <div class="candle"></div>
+              </div> -->
+              <img class="christmas-image" src="./static/christmas.jpg" alt=""/>
+          </div>
+          <div class="back"></div>
+          </div>
+          <div class="inside">
+          <p class="text-container text-inside-card">TP ❤️ HĐ</p>
+          <img class="love-image" src="./static/heart.svg" alt=""/>
+          </div>
+      </div>
+    </div>
+
+
+
     <div class="santa-container">
       <svg
         data-name="Layer 1"
@@ -232,7 +261,7 @@
       <div class="ribbon2"></div>
       <div class="shadow"></div>
     </div>
-    <div id="flipdown" class="flipdown"></div>
+    <!-- <div id="flipdown" class="flipdown"></div> -->
     <div class="deer-container">
       <div class="artboard">
         <div class="deer">
