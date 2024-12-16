@@ -170,3 +170,24 @@ function debounce (callback, wait = 800) {
 		}, wait);
 	};
 }
+
+// window.addEventListener('load', function() {
+// 		// Mô phỏng nhấp chuột tự động
+// 		const event = new MouseEvent('click', {
+// 			view: window,
+// 			bubbles: true,
+// 			cancelable: true
+// 		});
+  
+// 	  // Kích hoạt sự kiện nhấp chuột trên phần tử body hoặc bất kỳ phần tử nào khác
+// 	  document.body.dispatchEvent(event);
+// });  // chỉ kích hoạt một lần, khi có tương tác đầu tiên
+
+document.addEventListener('click', function() {
+    const audio = document.getElementById('audioElement');
+    if (audio.paused) {
+		audio.muted = false;
+		audio.volume = 0.25;
+      	audio.play();
+    }
+}, { once: true });  // chỉ kích hoạt một lần, khi có tương tác đầu tiên
