@@ -228,6 +228,11 @@ a {
     transform: rotateY(180deg);
     background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
   }
+  .back img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   .cake {
     width: 100%;
     position: absolute;
@@ -328,7 +333,9 @@ a {
 
   .text-inside-card {
     position: absolute;
-    top: 0;    
+    top: 50%;    
+    transform: translateY(-50%);
+    margin: 0;
   }
 
   .text-container span {
@@ -404,7 +411,7 @@ a {
     }
 
     .text-container.text-inside-card {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .text-container span {

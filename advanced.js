@@ -91,7 +91,7 @@ if (viewCardBtn) {
 		viewCardBtn.style.transform = 'scale(1)';
 		viewCardBtn.style.animation = 'appear 0.8s forwards';
 	// }, 9500);
-	}, 3500);
+	}, 2500);
 }
 })
 
