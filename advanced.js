@@ -91,7 +91,7 @@ if (viewCardBtn) {
 		viewCardBtn.style.transform = 'scale(1)';
 		viewCardBtn.style.animation = 'appear 0.8s forwards';
 	// }, 9500);
-	}, 2500);
+	}, 1500);
 }
 })
 
@@ -117,6 +117,7 @@ function viewCard() {
 	if (viewCardBtn) {
 		viewCardBtn.style.visibility = 'hidden';
 		viewCardBtn.style.opacity = '0';
+		viewCardBtn.style.transition = 'all ease 1s';
 	}
 
 	if (wrapperCard) {
@@ -144,7 +145,7 @@ function viewCard() {
 				if (card) {
 					card.style.visibility = 'hidden';
 					card.style.opacity = '0';
-					card.style.transform = 'translateY(-100vh)';
+					card.style.transform = 'translateY(calc(-50vh - 50%))';
 				}
 			
 				if (noelTree) {

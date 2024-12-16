@@ -121,7 +121,7 @@ a {
     bottom: 30px;
     margin: auto;
     border: none;
-    transition: 1s;
+    transition: all ease 1s;
     z-index: 999;
 }
 
@@ -165,7 +165,7 @@ a {
 .card {
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-100vh);
+    transform: translateY(calc(-50vh - 50%));
     width: 640px;
     height: 400px;
     position: absolute;
@@ -176,7 +176,7 @@ a {
     bottom: 0;
     -webkit-perspective: 1200px;
     perspective: 1200px;
-    transition: 1s;
+    transition: all ease 1.5s;
   }
   .card:hover {
     transform: rotate(-5deg);
@@ -346,7 +346,7 @@ a {
     opacity: 0;
     transform: scale(0.5);
     animation: appear 0.8s forwards;
-    animation-delay: calc(0.1s * var(--index));
+    animation-delay: calc(0.06s * var(--index));
   }
 
   .text-container.text-inside-card span {
