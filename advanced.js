@@ -136,12 +136,12 @@ function viewCard() {
 				});
 			})
 		}
-		wrapperCard.addEventListener('mouseover', handleMouseOverCard())
+		card.addEventListener('mouseover', handleMouseOverCard())
 
 		wrapperCard.addEventListener('click', (event) => {
 			const target = event.target;
 			if (target?.className === 'wrapper-card') {
-				wrapperCard.removeEventListener('mouseover', handleMouseOverCard());
+				card.removeEventListener('mouseover', handleMouseOverCard());
 				if (card) {
 					card.style.visibility = 'hidden';
 					card.style.opacity = '0';
