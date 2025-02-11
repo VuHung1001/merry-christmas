@@ -1,3 +1,9 @@
+# Merry christmas
+[Live site](https://vuhung1001.github.io/merry-christmas/)
+
+# Developed from the project of cristovaoolegario
+[https://github.com/cristovaoolegario/christmas-tree](https://github.com/cristovaoolegario/christmas-tree)
+
 # christmas-tree
 
 A christmas tree animation with HTML and CSS.
